@@ -7,5 +7,3 @@
 ## Features
 
 ## Dependencies
-
-# book-finder
