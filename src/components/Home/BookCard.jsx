@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 
 const BookCard = ({ books }) => {
 
@@ -15,12 +15,14 @@ const BookCard = ({ books }) => {
                 <h3>{book.volumeInfo.title}</h3>
                 <p>{book.volumeInfo.authors && book.volumeInfo.authors.join(', ')}</p>
                 <p>{book.volumeInfo.publisher}</p>
-                <button>Detail</button>
+                <Link to='detail'>
+                  <button>Detail</button>
+                </Link>
               </div>
             ))}
           </ul>
         ) : (
-          <p>Loading...</p>
+          <p>No Book Data Found</p>
         )
         }
       </div>
