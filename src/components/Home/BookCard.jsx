@@ -4,17 +4,17 @@ const BookCard = ({ books }) => {
 
   return (
     <div className="container">
-      <div className="books">
+      <div className="books my-12">
         {books ? (
-          <ul>
+          <ul className='grid grid-cols-6 grid-rows-2 gap-6'>
             {books.map((book) => (
               <div key={book.id}>
                 {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
-                <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
+                <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} className='w-full' />
                 )}
-                <h3>{book.volumeInfo.title}</h3>
-                <p>{book.volumeInfo.authors && book.volumeInfo.authors.join(', ')}</p>
-                <p>{book.volumeInfo.publisher}</p>
+                <h3 className='font-semibold'>{book.volumeInfo.title}</h3>
+                <p className='text-sm'> by {book.volumeInfo.authors && book.volumeInfo.authors.join(', ')}</p>
+                <p className='text-slate-500 text-sm'>{book.volumeInfo.publisher}</p>
                 <Link to='detail'>
                   <button>Detail</button>
                 </Link>
@@ -22,7 +22,7 @@ const BookCard = ({ books }) => {
             ))}
           </ul>
         ) : (
-          <p>No Book Data Found</p>
+          <p className='text-center'>No Book Data Found</p>
         )
         }
       </div>
