@@ -2,6 +2,7 @@ import React from 'react'
 import BookCard from "./BookCard";
 import Category from "./Category";
 import { useState } from "react"
+import { FaSearch } from "react-icons/fa";
 
 const Home = () => {
   const [query, setQuery] = useState([])
@@ -42,15 +43,15 @@ const Home = () => {
 
   
   return (
-    <div className='home'>
-      <div className="search">
+    <div className='container max-w-5xl my-0 mx-auto'>
+      <div className="search flex justify-center m-4 mt-24">
         <input
           type="text"
           placeholder="search for books"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button onClick={searchBooks}>Search</button>
+        <button onClick={searchBooks}><FaSearch /></button>
       </div>
 
       <Category onCategoryClick={handleCategoryClick} />
